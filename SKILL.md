@@ -99,6 +99,40 @@ pricing:
   model: per-session
 requiresDurableObjects: true
 manifestPath: ./dist/manifest.js
+examples:
+  - title: "Workshop Feedback"
+    description: "Interactive workshop with questions and understanding checks"
+    config:
+      presentationTitle: "React Hooks Deep Dive"
+      totalSlides: 30
+      allowedReactions: ["✅", "❓", "💡", "👏"]
+      enableQuestions: true
+      requireAuth: false
+      moderateQuestions: false
+      sessionDuration: 2
+      theme: "auto"
+  - title: "Corporate Presentation"
+    description: "Business presentation with moderated Q&A"
+    config:
+      presentationTitle: "Q4 Sales Strategy"
+      totalSlides: 25
+      allowedReactions: ["👍", "💼", "📊", "🎯"]
+      enableQuestions: true
+      requireAuth: true
+      moderateQuestions: true
+      sessionDuration: 1
+      theme: "dark"
+  - title: "Conference Talk"
+    description: "Large audience with quick reactions only"
+    config:
+      presentationTitle: "The Future of Web Development"
+      totalSlides: 45
+      allowedReactions: ["❤️", "🔥", "🚀", "🤯", "👏"]
+      enableQuestions: false
+      requireAuth: false
+      moderateQuestions: false
+      sessionDuration: 0
+      theme: "auto"
 ---
 
 # Slidev Real-time Feedback Skill
