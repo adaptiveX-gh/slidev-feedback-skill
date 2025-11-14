@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+
+# Build outputs
+dist/
+.output/
+.vercel/
+.netlify/
+.wrangler/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS files
+Thumbs.db
+
+# Cloudflare
+.dev.vars
+wrangler.toml.local

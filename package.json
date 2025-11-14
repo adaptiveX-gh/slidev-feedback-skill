@@ -1,0 +1,90 @@
+{
+  "name": "@skills/slidev-feedback",
+  "version": "1.0.0",
+  "description": "Real-time audience feedback for Slidev presentations using Durable Objects",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "slidev",
+    "presentation",
+    "feedback",
+    "realtime",
+    "websocket",
+    "durable-objects",
+    "audience-engagement",
+    "amagen-skill"
+  ],
+  "author": {
+    "name": "Amagen Skill Exchange",
+    "url": "https://github.com/amagen-skill-exchange"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amagen-skill-exchange/slidev-feedback-skill.git"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc && node scripts/post-build.js",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts,.tsx",
+    "deploy:worker": "wrangler deploy",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "zod": "^3.22.4",
+    "hono": "^3.11.0",
+    "framer-motion": "^10.16.0",
+    "recharts": "^2.10.0",
+    "qrcode": "^1.5.3",
+    "date-fns": "^3.0.0",
+    "lucide-react": "^0.263.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/qrcode": "^1.5.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.0",
+    "vitest": "^1.1.0",
+    "wrangler": "^3.22.0",
+    "eslint": "^8.56.0"
+  },
+  "peerDependencies": {
+    "@amagen/core": "^0.1.0",
+    "@amagen/ui": "^0.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "amagen": {
+    "skill": true,
+    "manifestPath": "./dist/manifest.js",
+    "category": "engagement",
+    "icon": "📊",
+    "requiresDurableObjects": true,
+    "cloudflareWorker": {
+      "enabled": true,
+      "bindings": ["FEEDBACK_DO"]
+    },
+    "features": {
+      "realtime": true,
+      "ai": false,
+      "analytics": true,
+      "collaborative": true,
+      "embeddable": true
+    },
+    "pricing": {
+      "creditsPerUse": 10,
+      "model": "per-session"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "EXAMPLES.md"
+  ]
+}
