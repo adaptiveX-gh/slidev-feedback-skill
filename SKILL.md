@@ -105,6 +105,18 @@ manifestPath: ./dist/manifest.js
 
 Transform your Slidev presentations into interactive experiences with real-time audience feedback and reactions.
 
+## Instructions
+
+This skill creates a real-time feedback system for Slidev presentations. When imported:
+
+1. **Configure** your presentation details (title, slide count, allowed reactions)
+2. **Deploy** the skill to generate a unique widget URL and QR code
+3. **Embed** the widget in your Slidev presentation or share the URL with your audience
+4. **Monitor** live reactions and questions through the presenter dashboard
+5. **Export** analytics after your presentation for detailed insights
+
+The skill uses WebSocket-powered Durable Objects for real-time synchronization between presenter and audience. All configuration is done through the 8 parameters defined in the frontmatter above.
+
 ## Overview
 
 The Slidev Real-time Feedback skill enables presenters to gather live reactions, questions, and engagement metrics from their audience during presentations. Built on Cloudflare Durable Objects for scalable real-time performance, this skill provides instant feedback loops that help presenters adjust their delivery on the fly.
@@ -206,39 +218,12 @@ The Slidev Real-time Feedback skill enables presenters to gather live reactions,
 
 ## Configuration Examples
 
-### Quick Workshop Setup
-```yaml
-presentationTitle: "React Hooks Deep Dive"
-totalSlides: 45
-allowedReactions: ["✅", "❓", "💡", "🎯", "👏"]
-enableQuestions: true
-requireAuth: false
-sessionDuration: 2
-theme: "auto"
-```
+**Common Configurations:**
+- **Workshop/Training**: Enable questions, moderate if needed, 2-hour auto-close, reactions like ✅❓💡
+- **Business Presentation**: Require auth, moderate questions, professional reactions like 👍💼📊
+- **Conference Talk**: Disable questions (use Q&A later), open access, engaging reactions like ❤️🔥🚀
 
-### Corporate Training
-```yaml
-presentationTitle: "Q4 Sales Strategy"
-totalSlides: 30
-allowedReactions: ["👍", "👎", "💼", "📊", "🎯"]
-enableQuestions: true
-requireAuth: true
-moderateQuestions: true
-sessionDuration: 1
-theme: "dark"
-```
-
-### Conference Talk
-```yaml
-presentationTitle: "The Future of Web Development"
-totalSlides: 60
-allowedReactions: ["❤️", "🔥", "🚀", "🤯", "👏"]
-enableQuestions: false
-requireAuth: false
-sessionDuration: 0
-theme: "auto"
-```
+All parameters are configured through the widget creation interface. See the 8 parameters in the frontmatter above for full customization options.
 
 ## Analytics & Insights
 
@@ -286,58 +271,21 @@ theme: "auto"
 4. Configure presentation settings
 5. Get embed code and QR code
 
-## Integration Examples
+## Integration
 
-### Slidev Markdown
-```markdown
----
-layout: center
----
+After creating a widget, you'll receive:
+- **Widget URL**: `https://widgets.amagen.app/widget/YOUR_WIDGET_ID`
+- **QR Code**: For easy mobile access
+- **Embed Code**: Ready-to-use iframe snippet
 
-# Welcome! 👋
-
-<iframe
-  src="https://widgets.amagen.app/widget/YOUR_WIDGET_ID"
-  width="400"
-  height="600"
-  frameborder="0">
-</iframe>
-```
-
-### HTML Website
+**Quick Embed** (works in Slidev, HTML, or any webpage):
 ```html
-<!-- Simple iframe embed -->
-<iframe
-  src="https://widgets.amagen.app/widget/YOUR_WIDGET_ID"
-  width="100%"
-  height="600px"
-  frameborder="0">
+<iframe src="https://widgets.amagen.app/widget/YOUR_WIDGET_ID"
+        width="400" height="600" frameborder="0">
 </iframe>
-
-<!-- JavaScript embed with auto-sizing -->
-<script src="https://widgets.amagen.app/embed.js"></script>
-<script>
-  AmagenWidget.init({
-    widgetId: 'YOUR_WIDGET_ID',
-    container: '#feedback-widget'
-  });
-</script>
-<div id="feedback-widget"></div>
 ```
 
-### Display QR Code
-```markdown
----
-layout: intro
----
-
-# Join the Discussion
-
-<div style="text-align: center;">
-  <img src="YOUR_QR_CODE_URL" width="300" />
-  <p>Scan to provide real-time feedback!</p>
-</div>
-```
+Share the widget URL or display the QR code during your presentation for audience access.
 
 ## Support & Resources
 
